@@ -35,7 +35,7 @@ class TransferService:
     
     def createRecipient(createRecipientRequest):
         data = jsonMapper.to_api_data(createRecipientRequest)
-        json_string = json.dumps(data)
+        json_string = json.dumps(data, default=lambda o: vars(o))
         print(data)
         print(json_string)
         url = "https://api.sandbox.transferwise.tech/v1/accounts"
