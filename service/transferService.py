@@ -22,27 +22,25 @@ class TransferService:
 
 
     def createQuote(createQuoteRequest):
-        print(vars(createQuoteRequest))
+   
         json_string = json.dumps(vars(createQuoteRequest))
-        print(json_string)
         url = "https://api.sandbox.transferwise.tech/v2/quotes"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer '}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer <>'}
         
         response = requests.post(url, data=json_string, headers=headers)
-        print(response)
-        return response.json()
+       
+        return response
 
     
     def createRecipient(createRecipientRequest):
         data = jsonMapper.to_api_data(createRecipientRequest)
         json_string = json.dumps(data, default=lambda o: vars(o))
-        print(data)
-        print(json_string)
+       
         url = "https://api.sandbox.transferwise.tech/v1/accounts"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer '}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer <>'}
 
         response = requests.post(url, data=json_string, headers=headers)
-        print(response)
+      
         return response
     
     
