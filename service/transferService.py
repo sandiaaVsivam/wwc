@@ -8,10 +8,10 @@ class TransferService:
 
         url = 'https://api.sandbox.transferwise.tech/oauth/token'
         data = { 'grant_type': 'refresh_token',   
-          'refresh_token': 'efd76f1c-f819-4138-b5f1-2fe69512cec7'}
+          'refresh_token': '<>'}
 
 # Set headers including authorization token and content type
-        headers = {'Authorization': 'Basic dHctdGVzdC1iYW5rOnR3LXRlc3QtYmFuaw==',
+        headers = {'Authorization': 'Basic <>',
            'Content-Type': 'application/x-www-form-urlencoded'}
 
 # Make the POST request
@@ -27,7 +27,7 @@ class TransferService:
         json_string = json.dumps(data)
         print(json_string)
         url = "https://api.sandbox.transferwise.tech/v2/quotes"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer 3978c03a-3165-444e-8a7f-c10f6b4a3a21'}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer <>'}
         
         response = requests.post(url, data=json_string, headers=headers)
         print(response)
@@ -40,7 +40,7 @@ class TransferService:
         print(data)
         print(json_string)
         url = "https://api.sandbox.transferwise.tech/v1/accounts"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer 3978c03a-3165-444e-8a7f-c10f6b4a3a21'}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer <>'}
 
         response = requests.post(url, data=json_string, headers=headers)
         print(response)

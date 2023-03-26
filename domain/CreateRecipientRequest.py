@@ -9,3 +9,5 @@ class CreateRecipientRequest(metaclass=metaClass.AutoGetSet):
         self._type = None
         self._details = RecipientAccountDetails.RecipientAccountDetails()
 
+    def to_dict(self):
+        return self.__dict__
