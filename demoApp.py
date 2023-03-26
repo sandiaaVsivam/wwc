@@ -35,7 +35,7 @@ class DemoApplication:
         recipient = CreateRecipientRequest.CreateRecipientRequest()
         recipient._currency = targetCurrency
         recipient._type = "ABA"
-        recipient._accountHolderName = "Reciever Account"
+        recipient._accountHolderName = "Receiver Account"
         details = RecipientAccountDetails.RecipientAccountDetails()
         details._accountNumber = accountNumber
         details._email=email
