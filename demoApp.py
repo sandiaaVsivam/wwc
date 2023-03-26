@@ -16,7 +16,8 @@ class DemoApplication:
 
     def getQuoteRequest(self):
         sourceCurrency = input("From which currency would you like to transfer? Please enter the currency code. (e.g., GBP)")
-        targetCurrency = input("What currency do you want to transfer to (EUR)?")
+        print("Setting target currency to USD")
+        targetCurrency = "USD"
         sourceAmount = input("How much would you like to transfer? Please enter the amount in numbers (up to 50,000).")
         print("Creating a quote...")
         quote = CreateQuoteRequest.CreateQuoteRequest()
