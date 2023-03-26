@@ -12,7 +12,7 @@ class DemoApplication:
         else:
             print("Created quote id ",response["id"])
 
-        self.createRecipient(createQuoteRequest._sourceCurrency)
+        self.createRecipient(createQuoteRequest._targetCurrency)
 
     def getQuoteRequest(self):
         sourceCurrency = input("From which currency would you like to transfer? Please enter the currency code. (e.g., GBP)")
@@ -26,16 +26,16 @@ class DemoApplication:
         return quote
     
 
-    def createRecipient(self, sourceCurrency):
+    def createRecipient(self, targetCurrency):
         print("Please enter recipient account details:")
         accountNumber = input("Account number")
         email = input("Email")
         accountType = input("Account type:(eg CHECKING)")
-        print("Creating sender account...")
+        print("Creating receiver account...")
         recipient = CreateRecipientRequest.CreateRecipientRequest()
-        recipient._currency = sourceCurrency
-        recipient._type = accountType
-        recipient._accountHolderName = "Sender Account"
+        recipient._currency = targetCurrency
+        recipient._type = "ABA"
+        recipient._accountHolderName = "Reciever Account"
         details = RecipientAccountDetails.RecipientAccountDetails()
         details._accountNumber = accountNumber
         details._email=email

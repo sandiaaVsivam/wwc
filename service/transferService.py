@@ -4,7 +4,7 @@ from domain import jsonMapper
 
 
 class TransferService:
-    def generateToken():
+    def generateToken(self):
 
         url = 'https://api.sandbox.transferwise.tech/oauth/token'
         data = { 'grant_type': 'refresh_token',   
@@ -22,12 +22,11 @@ class TransferService:
 
 
     def createQuote(createQuoteRequest):
-        data = createQuoteRequest.__dict__
-        print(data)
-        json_string = json.dumps(data)
+        print(vars(createQuoteRequest))
+        json_string = json.dumps(vars(createQuoteRequest))
         print(json_string)
         url = "https://api.sandbox.transferwise.tech/v2/quotes"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer <>'}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer '}
         
         response = requests.post(url, data=json_string, headers=headers)
         print(response)
@@ -40,7 +39,7 @@ class TransferService:
         print(data)
         print(json_string)
         url = "https://api.sandbox.transferwise.tech/v1/accounts"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer <>'}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer '}
 
         response = requests.post(url, data=json_string, headers=headers)
         print(response)
