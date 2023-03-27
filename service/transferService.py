@@ -1,6 +1,7 @@
 import requests
 import json
-from domain import jsonMapper
+
+from service.MyEncoder import MyEncoder
 
 
 class TransferService:
@@ -23,10 +24,10 @@ class TransferService:
 
     def createQuote(createQuoteRequest):
         print(vars(createQuoteRequest))
-        json_string = json.dumps(vars(createQuoteRequest))
+        json_string = json.dumps(createQuoteRequest, cls=MyEncoder)
         print(json_string)
         url = "https://api.sandbox.transferwise.tech/v2/quotes"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer '}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer af41706f-aac5-47c8-a844-9c197fbc6928'}
         
         response = requests.post(url, data=json_string, headers=headers)
         print(response)
@@ -34,14 +35,12 @@ class TransferService:
 
     
     def createRecipient(createRecipientRequest):
-        data = jsonMapper.to_api_data(createRecipientRequest)
-        json_string = json.dumps(data, default=lambda o: vars(o))
-        print(data)
-        print(json_string)
+        json_string1 = json.dumps(createRecipientRequest, cls=MyEncoder)
+        print(json_string1)
         url = "https://api.sandbox.transferwise.tech/v1/accounts"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer '}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer af41706f-aac5-47c8-a844-9c197fbc6928'}
 
-        response = requests.post(url, data=json_string, headers=headers)
+        response = requests.post(url, data=json_string1, headers=headers)
         print(response)
         return response
     
