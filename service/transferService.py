@@ -9,10 +9,10 @@ class TransferService:
 
         url = 'https://api.sandbox.transferwise.tech/oauth/token'
         data = { 'grant_type': 'refresh_token',   
-          'refresh_token': 'efd76f1c-f819-4138-b5f1-2fe69512cec7'}
+          'refresh_token': ''}
 
 # Set headers including authorization token and content type
-        headers = {'Authorization': 'Basic dHctdGVzdC1iYW5rOnR3LXRlc3QtYmFuaw==',
+        headers = {'Authorization': 'Basic ',
            'Content-Type': 'application/x-www-form-urlencoded'}
 
 # Make the POST request
