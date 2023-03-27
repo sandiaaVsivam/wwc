@@ -27,7 +27,7 @@ class TransferService:
         json_string = json.dumps(createQuoteRequest, cls=MyEncoder)
         print(json_string)
         url = "https://api.sandbox.transferwise.tech/v2/quotes"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer af41706f-aac5-47c8-a844-9c197fbc6928'}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer'}
         
         response = requests.post(url, data=json_string, headers=headers)
         print(response)
@@ -38,7 +38,7 @@ class TransferService:
         json_string1 = json.dumps(createRecipientRequest, cls=MyEncoder)
         print(json_string1)
         url = "https://api.sandbox.transferwise.tech/v1/accounts"
-        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer af41706f-aac5-47c8-a844-9c197fbc6928'}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer'}
 
         response = requests.post(url, data=json_string1, headers=headers)
         print(response)
