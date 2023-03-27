@@ -7,10 +7,10 @@ class DemoApplication:
         # transferService.TransferService.generateToken()
         createQuoteRequest = self.getQuoteRequest()
         response = transferService.TransferService.createQuote(createQuoteRequest)
-        if(response == None) :
+        if(response.status_code != 200) :
             print("Quote creation failed")
         else:
-            print("Created quote id ",response["id"])
+            print("Created quote id ",response.json()["id"])
 
         self.createRecipient(createQuoteRequest._targetCurrency)
 
@@ -21,9 +21,9 @@ class DemoApplication:
         sourceAmount = input("How much would you like to transfer? Please enter the amount in numbers (up to 50,000).")
         print("Creating a quote...")
         quote = CreateQuoteRequest.CreateQuoteRequest()
-        quote._sourceCurrency = sourceCurrency
-        quote._targetCurrency= targetCurrency
-        quote._sourceAmount = sourceAmount
+        quote.sourceCurrency = sourceCurrency
+        quote.targetCurrency= targetCurrency
+        quote.sourceAmount = sourceAmount
         return quote
     
 
@@ -44,8 +44,11 @@ class DemoApplication:
         details._address=Address.Address()
         recipient._details=details
         response = transferService.TransferService.createRecipient(recipient)
-        if(response != None):
-            print("SUCCESSFUL!")
+    
+        if(response.status_code != 200) :
+            print("Creation failed")
+        else:
+             print("SUCCESSFUL!")
 
 
 bb = DemoApplication()
